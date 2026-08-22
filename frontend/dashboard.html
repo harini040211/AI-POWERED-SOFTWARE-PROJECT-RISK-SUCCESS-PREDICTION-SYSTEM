@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Risk Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="professional-styles.css">
+</head>
+<body>
+    <!-- Modern Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-title">AI Risk Tracker</div>
+                    <div class="logo-subtitle">Enterprise Edition</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-profile">
+            <div class="user-avatar">
+                <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="user-info">
+                <div class="user-name" id="userName">Loading...</div>
+                <div class="user-role" id="userRole">Role</div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="bi bi-speedometer2"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="projects.html" class="nav-item">
+                <i class="bi bi-folder"></i>
+                <span>Projects</span>
+            </a>
+            <a href="risks.html" class="nav-item">
+                <i class="bi bi-exclamation-triangle"></i>
+                <span>Risks</span>
+            </a>
+            <a href="resources.html" class="nav-item">
+                <i class="bi bi-people"></i>
+                <span>Resources</span>
+            </a>
+            <a href="users.html" class="nav-item" id="usersMenu">
+                <i class="bi bi-person-gear"></i>
+                <span>User Management</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="bi bi-graph-up"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="reports.html" class="nav-item">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Reports</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="logout-btn" onclick="logout()">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <div class="page-title">
+                <h1 class="animate__animated animate__fadeInDown">Dashboard Overview</h1>
+                <p class="text-muted">Real-time project risk monitoring and analytics</p>
+            </div>
+
+            <div class="top-bar-actions">
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <button class="notification-btn">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid animate__animated animate__fadeInUp">
+            <div class="kpi-card gradient-purple">
+                <div class="kpi-icon">
+                    <i class="bi bi-folder"></i>
+                </div>
+                <div class="kpi-content">
+                    <div class="kpi-label">Total Projects</div>
+                    <div class="kpi-value" id="totalProjects">0</div>
+                    <div class="kpi-trend positive">
+                        <i class="bi bi-arrow-up"></i> 12% from last month
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card gradient-blue">
+                <div class="kpi-icon">
+                    <i class="bi bi-play-circle"></i>
+                </div>
+                <div class="kpi-content">
+                    <div class="kpi-label">Active Projects</div>
+                    <div class="kpi-value" id="activeProjects">0</div>
+                    <div class="kpi-trend positive">
+                        <i class="bi bi-arrow-up"></i> 8% increase
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card gradient-red">
+                <div class="kpi-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </div>
+                <div class="kpi-content">
+                    <div class="kpi-label">High Risks</div>
+                    <div class="kpi-value" id="highRisks">0</div>
+                    <div class="kpi-trend negative">
+                        <i class="bi bi-arrow-down"></i> Needs attention
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card gradient-green">
+                <div class="kpi-icon">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <div class="kpi-content">
+                    <div class="kpi-label">Avg Risk Score</div>
+                    <div class="kpi-value" id="avgRiskScore">0</div>
+                    <div class="kpi-trend positive">
+                        <i class="bi bi-arrow-down"></i> 5% decrease
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card gradient-orange">
+                <div class="kpi-icon">
+                    <i class="bi bi-heart-pulse"></i>
+                </div>
+                <div class="kpi-content">
+                    <div class="kpi-label">Project Health</div>
+                    <div class="kpi-value" id="projectHealth">0/100</div>
+                    <div class="kpi-trend positive">
+                        <i class="bi bi-arrow-up"></i> Improving
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card gradient-teal">
+                <div class="kpi-icon">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="kpi-content">
+                    <div class="kpi-label">Resource Utilization</div>
+                    <div class="kpi-value" id="resourceUtil">0%</div>
+                    <div class="kpi-trend neutral">
+                        <i class="bi bi-dash"></i> Stable
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-grid animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3><i class="bi bi-pie-chart"></i> Risk Distribution</h3>
+                    <div class="chart-actions">
+                        <button class="btn-icon"><i class="bi bi-download"></i></button>
+                        <button class="btn-icon"><i class="bi bi-three-dots"></i></button>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas id="riskDistChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3><i class="bi bi-bar-chart"></i> Risk by Category</h3>
+                    <div class="chart-actions">
+                        <button class="btn-icon"><i class="bi bi-download"></i></button>
+                        <button class="btn-icon"><i class="bi bi-three-dots"></i></button>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas id="riskCategoryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <h3><i class="bi bi-graph-up-arrow"></i> Project Timeline & Progress</h3>
+                    <div class="chart-actions">
+                        <button class="btn-icon"><i class="bi bi-download"></i></button>
+                        <button class="btn-icon"><i class="bi bi-three-dots"></i></button>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts Section -->
+        <div class="alerts-section animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+            <div class="section-header">
+                <h2><i class="bi bi-bell"></i> Early Warning Alerts</h2>
+                <button class="btn-primary">View All</button>
+            </div>
+            <div id="alertsContainer" class="alerts-grid">
+                <!-- Alerts will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="activity-section animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+            <div class="section-header">
+                <h2><i class="bi bi-clock-history"></i> Recent Activity</h2>
+            </div>
+            <div class="activity-timeline" id="activityTimeline">
+                <!-- Activity will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

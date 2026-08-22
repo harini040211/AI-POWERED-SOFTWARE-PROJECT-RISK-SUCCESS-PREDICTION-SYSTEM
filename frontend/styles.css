@@ -1,0 +1,192 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Stat Cards */
+.stat-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.bg-purple {
+    background-color: #6f42c1 !important;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: 600;
+}
+
+/* Badges */
+.badge-status {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Tables */
+.table {
+    background-color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #4e73df;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+}
+
+/* Alert Container */
+.alert-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Forms */
+.form-control:focus,
+.form-select:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+/* Progress Bars */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+/* Risk Level Colors */
+.risk-low {
+    background-color: #28a745;
+    color: white;
+}
+
+.risk-medium {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.risk-high {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Health Status Colors */
+.health-healthy {
+    background-color: #28a745;
+    color: white;
+}
+
+.health-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.health-critical {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Utilization Status Colors */
+.util-underutilized {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.util-optimal {
+    background-color: #28a745;
+    color: white;
+}
+
+.util-high {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.util-overloaded {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Loading Spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Modal */
+.modal-header {
+    background-color: #4e73df;
+    color: white;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+/* Navbar */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
